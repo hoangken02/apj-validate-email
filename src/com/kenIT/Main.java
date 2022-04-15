@@ -2,7 +2,21 @@ package com.kenIT;
 
 public class Main {
 
+    public static final String[] validEmail = new String[]{"a@gmail.com", "ab@yahoo.com", "abc@hotmail.com"};
+    public static final String[] invalidEmail = new String[]{"@gmail.com", "ab@gmail.", "@#abc@gmail.com"};
+    static EmailExample emailExample;
+
     public static void main(String[] args) {
-	// write your code here
+        emailExample = new EmailExample();
+        for (String email : validEmail
+        ) {
+            boolean isValid = emailExample.validate(email);
+            System.out.println("Email is " + email + " is valid: " + isValid);
+        }
+
+        for (String email : invalidEmail) {
+            boolean isValid = emailExample.validate(email);
+            System.out.println("Email is " + email + " is valid: " + isValid);
+        }
     }
 }
